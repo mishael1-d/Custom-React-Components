@@ -20,8 +20,8 @@ function TableWIthLoadingState() {
 
     return (
         <div>
-            <h3 className='font-semibold text-xl mt-[20px] mb-[10px]'>React Table With Actions</h3>
-            <p>This is a simple table that showcases the use of this custom table component to display data in the simplest form.</p>
+            <h3 className='font-semibold text-xl mt-[20px] mb-[10px]'>React Table With Loading State and Empty Data</h3>
+            <p>This is a feature that seamlessly integrates loading indicators and gracefully handles scenarios where the data set is empty, enhancing the user experience by providing visual feedback during data retrieval and ensuring a polished presentation even when no data is available.</p>
             <Table
                 header={[
                     { name: "Name", identifier: "name" },

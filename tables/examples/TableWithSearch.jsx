@@ -8,7 +8,7 @@ function TableWithSearch() {
     return (
         <div>
             <h3 className='font-semibold text-xl mt-[20px] mb-[10px]'>React Table With Search Functionality</h3>
-            <p>This is a simple table that showcases the use of this custom table component to display data in the simplest form.</p>
+            <p>This feature increases efficiency and usability, enabling seamless navigation and interaction with large datasets displayed in the React table.</p>
             <div className="relative">
                 <input
                     className="w-[343px] h-[50px] rounded-[8px]  pl-[36px] pr-4 text-[16px] relative outline-none border"

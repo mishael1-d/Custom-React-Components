@@ -13,7 +13,8 @@ function TableWithActions() {
     return (
         <div>
             <h3 className='font-semibold text-xl mt-[20px] mb-[10px]'>React Table With Actions</h3>
-            <p>This is a simple table that showcases the use of this custom table component to display data in the simplest form.</p>
+            <p>This showcases extra functions to edit, delete and view information on a particular row.</p>
+            <p><i>Using the Props: allowActions(boolean), actions(object)</i></p>
             <Table
                 header={[
                     { name: "Name", identifier: "name" },

@@ -192,74 +192,82 @@ function Table({
               </tr>
             )
           ) : (
-            filteredData?.map((rowData, rowIndex) => {
-              return (
-                <tr
-                  key={rowIndex}
-                  className={`${options?.tableStyle === "striped-even"
-                    ? "even:bg-slate-200"
-                    : options?.tableStyle === "striped-odd"
-                      ? "odd:bg-slate-200"
-                      : "bg-white"
-                    }`}
-                >
-                  {/* Render table cells */}
-                  <td>
-                    {/* <MdOutlineCheckBoxOutlineBlank className="cursor-pointer" /> */}
-                  </td>
-                  {header.map((column, colIndex) => {
-                    return <td key={colIndex}>{rowData[column.identifier]}</td>;
-                  })}
-                  {options?.allowActions && (
-                    <td className="flex items-center justify-start gap-3">
-                      {options?.actions?.edit && (
-                        <span
-                          className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-blue-100 cursor-pointer"
-                          onClick={() => {
-                            setOpenModal &&
-                              setOpenModal({
-                                modalName: "edit",
-                                showModal: true,
-                              });
-                            setRowData && setRowData(rowData);
-                          }}
-                        >
-                          <CiEdit size={16} />
-                        </span>
-                      )}
-                      {options?.actions?.delete && (
-                        <span
-                          className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-red-100 cursor-pointer"
-                          onClick={() => {
-                            setOpenModal &&
-                              setOpenModal({
-                                modalName: "delete",
-                                showModal: true,
-                              });
-                            setRowData && setRowData(rowData);
-                          }}
-                        >
-                          <FiTrash2 size={14} color="red" />
-                        </span>
-                      )}
-                      {options?.actions?.view && (
-                        <span className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-blue-300 cursor-pointer" onClick={() => {
-                          setOpenModal &&
-                            setOpenModal({
-                              modalName: "view",
-                              showModal: true,
-                            });
-                          setRowData && setRowData(rowData);
-                        }}>
-                          <IoEyeOutline size={15} />
-                        </span>
-                      )}
+            filteredData?.length > 0 ?
+              filteredData?.map((rowData, rowIndex) => {
+                return (
+                  <tr
+                    key={rowIndex}
+                    className={`${options?.tableStyle === "striped-even"
+                      ? "even:bg-slate-200"
+                      : options?.tableStyle === "striped-odd"
+                        ? "odd:bg-slate-200"
+                        : "bg-white"
+                      }`}
+                  >
+                    {/* Render table cells */}
+                    <td>
+                      {/* <MdOutlineCheckBoxOutlineBlank className="cursor-pointer" /> */}
                     </td>
-                  )}
+                    {header.map((column, colIndex) => {
+                      return <td key={colIndex}>{rowData[column.identifier]}</td>;
+                    })}
+                    {options?.allowActions && (
+                      <td className="flex items-center justify-start gap-3">
+                        {options?.actions?.edit && (
+                          <span
+                            className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-blue-100 cursor-pointer"
+                            onClick={() => {
+                              setOpenModal &&
+                                setOpenModal({
+                                  modalName: "edit",
+                                  showModal: true,
+                                });
+                              setRowData && setRowData(rowData);
+                            }}
+                          >
+                            <CiEdit size={16} />
+                          </span>
+                        )}
+                        {options?.actions?.delete && (
+                          <span
+                            className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-red-100 cursor-pointer"
+                            onClick={() => {
+                              setOpenModal &&
+                                setOpenModal({
+                                  modalName: "delete",
+                                  showModal: true,
+                                });
+                              setRowData && setRowData(rowData);
+                            }}
+                          >
+                            <FiTrash2 size={14} color="red" />
+                          </span>
+                        )}
+                        {options?.actions?.view && (
+                          <span className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-blue-300 cursor-pointer" onClick={() => {
+                            setOpenModal &&
+                              setOpenModal({
+                                modalName: "view",
+                                showModal: true,
+                              });
+                            setRowData && setRowData(rowData);
+                          }}>
+                            <IoEyeOutline size={15} />
+                          </span>
+                        )}
+                      </td>
+                    )}
 
-                </tr>
-              );
-            })
+                  </tr>
+                );
+              }) : <tr>
+                <td
+                  colSpan={`${header && header.length + (options?.allowActions ? 1 : 0) + 1}`}
+                  className="bg-white h-[80px] !py-[3rem] !text-center leading-[80px] mx-auto w-full"
+                >
+                  {loading ? <Loader color="black" /> : "No result Found"}
+                </td>
+              </tr>
           )}
         </tbody>
 

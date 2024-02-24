@@ -6,7 +6,7 @@ function SortingTable() {
     return (
         <div>
             <h3 className='font-semibold text-xl mt-[20px] mb-[10px]'>Basic Standard React Table With Column Sorting</h3>
-            <p>This is a simple table that showcases the use of this custom table component to display data in the simplest form.</p>
+            <p>You can implement a basic React table component with the ability to sort columns in ascending or descending order. You can use the <i>Props: allowSorting(boolean) to enable or disable this functionality.</i></p>
             <Table
                 header={[
                     { name: "Name", identifier: "name" },
